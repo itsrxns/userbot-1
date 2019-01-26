@@ -36,7 +36,7 @@ async def remove_notes(e):
         await e.edit("```Note removed successfully```")
 
 
-@bot.on(events.NewMessage(outgoing=True, pattern="^\.addnote  (\w*)"))
+@bot.on(events.NewMessage(outgoing=True, pattern="^\.addnote (\w*)"))
 async def add_filter(e):
     if not e.text[0].isalpha():
         try:
