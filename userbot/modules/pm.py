@@ -19,7 +19,7 @@ async def permitpm(e):
             except:
                 return
             E = is_approved(e.chat_id)
-            if not E and e.text != "`Bleep Blop! This is a Bot. Don't fret. \n\nMy Master hasn't approved you to PM. \
+            if not E and e.text != "`Bleep Blop! This is a Bot. Don't fret. \n\nMy Master 'ѕнanυ ғlaѕн #noυ' hasn't approved you to PM. \
 Please wait for my Master to look in, he would mostly approve PMs.\n\n\
 As far as i know, he doesn't usually approve Retards.`" :
                 await e.reply(
@@ -79,7 +79,7 @@ async def approvepm(e):
             await e.edit("`Running on Non-SQL mode!`")
             return
         approve(e.chat_id)
-        await e.edit("`Approved to PM!`")
+        await e.edit("`ѕнanυ ғlaѕн #noυ has approved you to PM!`")
         if LOGGER:
             aname = await bot.get_entity(e.chat_id)
             name0 = str(aname.first_name)
@@ -91,4 +91,29 @@ async def approvepm(e):
                 + str(e.chat_id)
                 + ")"
                 + " was approved to PM you.",
+            )
+
+
+@bot.on(events.NewMessage(outgoing=True, pattern="^.disapprove$"))
+@bot.on(events.MessageEdited(outgoing=True, pattern="^.disapprove$"))
+async def disapprovepm(e):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        try:
+            from userbot.modules.sql_helper.pm_permit_sql import dissprove
+        except:
+            await e.edit("`Running on Non-SQL mode!`")
+            return
+        dissprove(e.chat_id)
+        await e.edit("`ѕнanυ ғlaѕн #noυ has disapproved you to PM!`")
+        if LOGGER:
+            aname = await bot.get_entity(e.chat_id)
+            name0 = str(aname.first_name)
+            await bot.send_message(
+                LOGGER_GROUP,
+                "["
+                + name0
+                + "](tg://user?id="
+                + str(e.chat_id)
+                + ")"
+                + " was Disapproved to PM you.",
             )
