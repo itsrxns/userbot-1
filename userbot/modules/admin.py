@@ -11,8 +11,8 @@ from telethon import TelegramClient, events
 from userbot import bot, SPAM, SPAM_ALLOWANCE, BRAIN_CHECKER, LOGGER_GROUP, LOGGER
 
 
-@bot.on(events.NewMessage(outgoing=True, pattern="^.promote$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.promote$"))
+@bot.on(events.NewMessage(outgoing=True, pattern="^.upromote$"))
+@bot.on(events.MessageEdited(outgoing=True, pattern="^.upromote$"))
 async def wizzard(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         rights = ChannelAdminRights(
@@ -24,16 +24,16 @@ async def wizzard(e):
             pin_messages=True,
             invite_link=True,
         )
-        await e.edit("`Wizard waves his wand!`")
+        await e.edit("`Promoting...`")
         time.sleep(3)
         await bot(
             EditAdminRequest(e.chat_id, (await e.get_reply_message()).sender_id, rights)
         )
-        await e.edit("A perfect magic has happened!")
+        await e.edit("Promoted!")
 
 
-@bot.on(events.NewMessage(outgoing=True, pattern="^.ban$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.ban$"))
+@bot.on(events.NewMessage(outgoing=True, pattern="^.uban$"))
+@bot.on(events.MessageEdited(outgoing=True, pattern="^.uban$"))
 async def thanos(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         rights = ChannelBannedRights(
@@ -50,7 +50,7 @@ async def thanos(e):
         if (await e.get_reply_message()).sender_id in BRAIN_CHECKER:
             await e.edit("`Ban Error! Couldn't ban this user`")
             return
-        await e.edit("`Thanos snaps!`")
+        await e.edit("`Banning...`")
         time.sleep(5)
         try:
             await bot(
@@ -64,9 +64,9 @@ async def thanos(e):
                     "<triggerban> " + str((await e.get_reply_message()).sender_id)
                 )
                 return
-        await e.delete()
+        await e.edit("Banned!")
         await bot.send_file(
-            e.chat_id, "https://media.giphy.com/media/xUOxfgwY8Tvj1DY5y0/source.gif"
+            e.chat_id, "https://telegra.ph/file/d82113f9a646354b7c291.mp4"
         )
         if LOGGER:
             await bot.send_message(
@@ -75,8 +75,8 @@ async def thanos(e):
             )
 
 
-@bot.on(events.NewMessage(outgoing=True, pattern="^.mute$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.mute$"))
+@bot.on(events.NewMessage(outgoing=True, pattern="^.umute$"))
+@bot.on(events.MessageEdited(outgoing=True, pattern="^.umute$"))
 async def spider(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         if (await e.get_reply_message()).sender_id in BRAIN_CHECKER:
@@ -88,9 +88,9 @@ async def spider(e):
             await e.edit("`Running on Non-SQL mode!`")
             return
         mute(e.chat_id, str((await e.get_reply_message()).sender_id))
-        await e.edit("`Spiderman nabs him!`")
+        await e.edit("`Muting...`")
         time.sleep(5)
-        await e.delete()
+        await e.edit("Muted!")
         await bot.send_file(
             e.chat_id, "https://image.ibb.co/mNtVa9/ezgif_2_49b4f89285.gif"
         )

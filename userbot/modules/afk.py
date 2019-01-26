@@ -13,9 +13,9 @@ async def mention_afk(e):
         if ISAFK:
             if e.sender_id not in USERS:
                 await e.reply(
-                    "Sorry! My boss is AFK due to ```"
+                    "Sorry! My boss  'ѕнanυ ғlaѕн #noυ' is AFK due to ```"
                     + AFKREASON
-                    + "```. Would ping him to look into the message soon😉"
+                    + "```Would ping him to look into the message soon😉"
                 )
                 USERS.update({e.sender_id: 1})
                 COUNT_MSG = COUNT_MSG + 1
@@ -42,9 +42,9 @@ async def afk_on_pm(e):
         if ISAFK:
             if e.sender_id not in USERS:
                 await e.reply(
-                    "Sorry! My boss is AFK due to ```"
+                    "Sorry! My boss 'ѕнanυ ғlaѕн #noυ' is AFK due to ```"
                     + AFKREASON
-                    + "``` I'll ping him to look into the message soon😉"
+                    + "```I'll ping him to look into the message soon😉"
                 )
                 USERS.update({e.sender_id: 1})
                 COUNT_MSG = COUNT_MSG + 1

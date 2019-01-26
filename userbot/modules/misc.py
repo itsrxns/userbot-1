@@ -218,7 +218,7 @@ async def bot_support(e):
 @bot.on(events.MessageEdited(outgoing=True, pattern="^.repo$"))
 async def repo_is_here(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("https://github.com/baalajimaestro/Telegram-UserBot/")
+        await e.edit("https://github.com/shanuflash/userbot")
 
 
 @bot.on(events.NewMessage(outgoing=True, pattern="^.supportchannel$"))
@@ -338,7 +338,7 @@ async def unmute_chat(e):
             except:
                 await e.edit('`Running on Non-SQL Mode!`')
             unkread(str(e.chat_id))
-            await e.edit("```Unmuted this chat Successfully```")
+            await e.edit("```Unmuted this chat successfully```")
 
 
 @bot.on(events.NewMessage(outgoing=True, pattern="^.mutechat$"))
