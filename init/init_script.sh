@@ -54,7 +54,7 @@ read -p "Enter your DB URL: " DB_URI
 else
 DB_URI=None
 fi
-echo "API_ID=$API_KEY
+echo "API_KEY=$API_KEY
 API_HASH=$API_HASH
 SCREENSHOT_LAYER_ACCESS_KEY=$SCREENSHOT_LAYER_ACCESS_KEY
 PM_AUTO_BAN=$PM_AUTO_BAN
@@ -63,7 +63,9 @@ LOGGER_GROUP=$LOGGER_GROUP
 OPEN_WEATHER_MAP_APPID=$OPEN_WEATHER_MAP_APP_ID
 DB_URI=$DB_URI" >> config.env
 python3.7 -m userbot test
-sudo mv bot /etc/init.d/userbot
+sudo mv bot /etc/systemd/system/userbot.service
+sudo systemctl start userbot.service
+sudo systemctl enable userbot.service
 echo "
 
 Pushed to init.d. Bot must work on reboot too.
