@@ -2,6 +2,17 @@ import sqlite3
 import subprocess
 import sys, os
 import dotenv
+from alchemysession import AlchemySessionContainer
+#from argparse import ArgumentParser
+
+#parser = ArgumentParser()
+
+#parser.add_argument(
+##    "-m", help="Run as module?"
+#)
+
+#args = parser.parse_args()
+
 dotenv.load_dotenv("config.env")
 BUILD_CHOICE=os.environ.get("BUILD_CHOICE","stable")
 subprocess.run(["rm", "-rf", "brains.check"], stdout=subprocess.PIPE)

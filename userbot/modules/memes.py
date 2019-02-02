@@ -4,6 +4,7 @@ from userbot import bot, ENABLE_KILLME, WIDE_MAP
 from userbot import LOGGER, LOGGER_GROUP, DISABLE_RUN
 from telethon import TelegramClient, events
 from spongemock import spongemock
+import asyncio
 import time
 import asyncio
 
@@ -400,7 +401,8 @@ async def bluetext(e):
         )
 
 
-@bot.on(events.NewMessage(pattern='(?i).type'))
+@bot.on(events.NewMessage(pattern='^(?i).type'))
+@bot.on(events.MessageEdited(pattern='^(?i).type'))
 async def typewriter(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         textx = await e.get_reply_message()
@@ -423,4 +425,6 @@ async def typewriter(e):
             await e.edit(typing_text)
             await asyncio.sleep(sleep_time)
             await e.edit(old_text)
+            await asyncio.sleep(sleep_time)
+            await msg.edit('`%s`' % (old_text.strip()))
             await asyncio.sleep(sleep_time)
