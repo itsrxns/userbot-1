@@ -26,38 +26,6 @@ subprocess.run(
     ],
     stdout=subprocess.PIPE,
 )
-<<<<<<< HEAD
-subprocess.run(
-    [
-        "git",
-        "remote",
-        "rm",
-        "pull",
-    ],
-    stdout=subprocess.PIPE,
-)
-subprocess.run(
-    [
-        "git",
-        "remote",
-        "add",
-        "pull",
-        "https://github.com/shanuflash/userbot"
-    ],
-    stdout=subprocess.PIPE,
-)
-subprocess.run(
-    [
-        "git",
-        "pull",
-        "pull",
-        "modular",
-    ],
-    stdout=subprocess.PIPE,
-)
-if len(sys.argv)==1:
-    if BUILD_CHOICE == "stable":
-=======
 if UPDATER=="True":
     subprocess.run(
         [
@@ -106,7 +74,6 @@ if UPDATER=="True":
             stdout=subprocess.PIPE,
             )
     if len(sys.argv) == 4:
->>>>>>> 43ae2225a0545bc116fc49e0308d37115559ecf5
         tyq=subprocess.run(
         [
         "git",
