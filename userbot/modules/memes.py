@@ -428,3 +428,19 @@ async def typewriter(e):
             await asyncio.sleep(sleep_time)
             await msg.edit('`%s`' % (old_text.strip()))
             await asyncio.sleep(sleep_time)
+
+
+@bot.on(events.NewMessage(outgoing=True, pattern="^.walk"))
+@bot.on(events.MessageEdited(outgoing=True, pattern="^.walk"))
+async def walk(e):
+  if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+            args = str(e.text[6:])
+            text = e.text
+            text = text.replace(".walk", "")
+            text = text.replace(" ", " ")
+            for i in range(len(text) * 500):
+                f = text[0]
+                text = text[1:]
+                text += f
+                await e.edit(text)
+                asyncio.sleep(0.4)
