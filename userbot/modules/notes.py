@@ -1,25 +1,13 @@
-<<<<<<< HEAD
-import sqlite3
 
-from telethon import TelegramClient, events
-=======
 from telethon import events
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
 
 from userbot import LOGGER, LOGGER_GROUP, bot
 
 
-<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern="^\.listnotes$"))
 @bot.on(events.MessageEdited(outgoing=True, pattern="^\.listnotes$"))
-async def notes_active(e):
-    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-=======
-@bot.on(events.NewMessage(outgoing=True, pattern="^\.saved$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^\.saved$"))
 async def notes_active(svd):
     if not svd.text[0].isalpha() and svd.text[0] not in ("/", "#", "@", "!"):
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
         try:
             from userbot.modules.sql_helper.notes_sql import get_notes
         except:
@@ -35,15 +23,9 @@ async def notes_active(svd):
         await svd.edit(message)
 
 
-<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern="^\.rmnote (\w*)"))
-async def remove_notes(e):
-    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-=======
-@bot.on(events.NewMessage(outgoing=True, pattern="^\.clear (\w*)"))
 async def remove_notes(clr):
     if not clr.text[0].isalpha() and clr.text[0] not in ("/", "#", "@", "!"):
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
         try:
             from userbot.modules.sql_helper.notes_sql import rm_note
         except:
@@ -54,15 +36,9 @@ async def remove_notes(clr):
         await clr.edit("```Note removed successfully```")
 
 
-<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern="^\.addnote (\w*)"))
-async def add_filter(e):
-    if not e.text[0].isalpha():
-=======
-@bot.on(events.NewMessage(outgoing=True, pattern="^\.save (\w*)"))
 async def add_filter(fltr):
     if not fltr.text[0].isalpha():
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
         try:
             from userbot.modules.sql_helper.notes_sql import add_note
         except:

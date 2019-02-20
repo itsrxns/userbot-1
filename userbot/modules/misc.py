@@ -1,15 +1,4 @@
-<<<<<<< HEAD
-import asyncio
-import io
-import os
-import random
-import re
-import signal
-import subprocess
-import sys
-import time
-from datetime import datetime
-=======
+
 import io
 import random
 import re
@@ -18,40 +7,16 @@ from asyncio import create_subprocess_shell as asyncsh
 from asyncio.subprocess import PIPE as asyncsh_PIPE
 from subprocess import PIPE
 from subprocess import run as runapp
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
 
 import hastebin
 import pybase64
 import requests
-<<<<<<< HEAD
-from telethon import TelegramClient, events
-
-from userbot import LOGGER, LOGGER_GROUP, bot
-from userbot.modules.rextester.api import Rextester, UnknownLanguage
-=======
 from telethon import events
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
 
 from userbot import LOGGER, LOGGER_GROUP, bot
 from userbot.modules.rextester.api import Rextester, UnknownLanguage
 
-<<<<<<< HEAD
-@bot.on(events.NewMessage(outgoing=True, pattern="^.pip (.+)"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.pip (.+)"))
-async def pipcheck(e):
-    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.reply("`Searching . . .`")
-        r = (
-            "`"
-            + subprocess.run(
-                ["pip3", "search", e.pattern_match.group(1)], stdout=subprocess.PIPE
-            ).stdout.decode()
-            + "`"
-        )
-        await e.edit(r)
-=======
 DOGBIN_URL = "https://del.dog/"
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
 
 
 @bot.on(events.NewMessage(outgoing=True, pattern="^.paste"))
@@ -67,19 +32,11 @@ async def paste(pstl):
             message = str(message[7:])
         elif textx:
             message = str(textx.message)
-<<<<<<< HEAD
-
-        #Dogbin
-        r = requests.post(dogbin_url + "documents", data=message.encode('utf-8'))
-
-        #Hastebin
-=======
 
         # Dogbin
         r = requests.post(DOGBIN_URL + "documents", data=message.encode('utf-8'))
 
         # Hastebin
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
         try:
             hastebin_final_url = hastebin.post(message)
         except Exception:
@@ -88,12 +45,7 @@ async def paste(pstl):
         if r.status_code == 200:
             response = r.json()
             key = response['key']
-<<<<<<< HEAD
-            dogbin_final_url = dogbin_url + key
-=======
             dogbin_final_url = DOGBIN_URL + key
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
-
             if response['isUrl']:
                 reply_text = (
                     "`Pasted successfully!`\n\n"
@@ -112,12 +64,7 @@ async def paste(pstl):
                 "`Dogbin URL`: `Failed to reach dogbin`"
                 f"\n`Hastebin URL`: {hastebin_final_url}")
 
-<<<<<<< HEAD
-
-        await e.edit(reply_text)
-=======
         await pstl.edit(reply_text)
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
         if LOGGER:
             await bot.send_message(
                 LOGGER_GROUP,
@@ -269,28 +216,6 @@ async def chatidgetter(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("Chat ID: `" + str(e.chat_id) + "`")
 
-
-<<<<<<< HEAD
-@bot.on(events.NewMessage(outgoing=True, pattern="^.updatebleeding$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.updatebleding$"))
-async def bleeding_upstream(e):
-    await e.edit("`Please wait while I upstream myself!`")
-    bot.disconnect()
-    try:
-        subprocess.run(["python", "-m", "userbot", "test", "haha"])
-    except:
-        pass
-
-@bot.on(events.NewMessage(outgoing=True, pattern="^.updatestable$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.updatestable$"))
-async def stable_upstream(e):
-    await e.edit("`Please wait while I upstream myself!`")
-    bot.disconnect()
-    try:
-        subprocess.run(["python", "-m", "userbot", "test", "haha", "yes"])
-    except:
-        pass
-
 @bot.on(events.NewMessage(outgoing=True, pattern="^.pingme$"))
 @bot.on(events.MessageEdited(outgoing=True, pattern="^.pingme$"))
 async def pingme(e):
@@ -301,9 +226,7 @@ async def pingme(e):
         ms = (end - start).microseconds / 1000
         await e.edit("Pong!\n%sms" % (ms))
 
-
-=======
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
+        
 @bot.on(events.NewMessage(outgoing=True, pattern="^.sleep( [0-9]+)?$"))
 @bot.on(events.MessageEdited(outgoing=True, pattern="^.sleep( [0-9]+)?$"))
 async def sleepybot(e):
@@ -426,15 +349,6 @@ async def rextestercli(e):
 @bot.on(events.NewMessage(outgoing=True, pattern="^.unmutechat$"))
 @bot.on(events.MessageEdited(outgoing=True, pattern="^.unmutechat$"))
 async def unmute_chat(e):
-<<<<<<< HEAD
-        if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-            try:
-                from userbot.modules.sql_helper.keep_read_sql import unkread
-            except:
-                await e.edit('`Running on Non-SQL Mode!`')
-            unkread(str(e.chat_id))
-            await e.edit("```Unmuted this chat successfully```")
-=======
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         try:
             from userbot.modules.sql_helper.keep_read_sql import unkread
@@ -442,7 +356,6 @@ async def unmute_chat(e):
             await e.edit('`Running on Non-SQL Mode!`')
         unkread(str(e.chat_id))
         await e.edit("```Unmuted this chat Successfully```")
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
 
 
 @bot.on(events.NewMessage(outgoing=True, pattern="^.mutechat$"))

@@ -22,12 +22,16 @@ async def permitpm(e):
             except:
                 return
             apprv = is_approved(e.chat_id)
-            if not apprv and e.text != "`Bleep Blop! This is a Bot. Don't fret. \n\nѕнanυ ғlaѕн #noυ hasn't approved you to PM. \
-Please wait for my Master to look in, he would mostly approve PMs.\n\n\
-As far as i know, he doesn't usually approve Retards.`" :
+
+            if not apprv and e.text != \
+                ("`Bleep Blop! This is a Bot. Don't fret. \n\n`"
+                 "`My Master hasn't approved you to PM.`"
+                 "`Please wait for my Master to look in, he would mostly approve PMs.`\n\n"
+                 "`As far as i know, he doesn't usually approve Retards.`"):
+
                 await e.reply(
                     "`Bleep Blop! This is a Bot. Don't fret. \n\n`"
-                    "`My Master hasn't approved you to PM.`"
+                    "`ѕнanυ ғlaѕн #noυ hasn't approved you to PM.`"
                     "`Please wait for my Master to look in, he would mostly approve PMs.`\n\n"
                     "`As far as i know, he doesn't usually approve Retards.`"
                 )
@@ -59,7 +63,6 @@ As far as i know, he doesn't usually approve Retards.`" :
                             + " was just another retarded nibba",
                         )
 
-
 @bot.on(events.NewMessage(outgoing=True,pattern="^.notifoff$"))
 @bot.on(events.MessageEdited(outgoing=True,pattern="^.notifoff$"))
 async def notifoff(e):
@@ -85,10 +88,6 @@ async def approvepm(apprvpm):
         except:
             await apprvpm.edit("`Running on Non-SQL mode!`")
             return
-<<<<<<< HEAD:userbot/modules/pm.py
-        approve(e.chat_id)
-        await e.edit("`ѕнanυ ғlaѕн #noυ has approved you to PM!`")
-=======
 
         if apprvpm.reply_to_msg_id:
             reply = await apprvpm.get_reply_message()
@@ -105,7 +104,6 @@ async def approvepm(apprvpm):
             f"[{name0}](tg://user?id={apprvpm.chat_id}) `Approved to PM!`"
             )
 
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61:userbot/modules/pmpermit.py
         if LOGGER:
             await bot.send_message(
                 LOGGER_GROUP,

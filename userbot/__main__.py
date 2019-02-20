@@ -1,18 +1,7 @@
-<<<<<<< HEAD
-import asyncio
-import importlib
-import logging
-import os
-import sqlite3
-import sys
-import time
 
-from telethon import TelegramClient, events
-=======
 import importlib
 import sqlite3
 import sys
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
 
 from userbot import BRAIN_CHECKER, LOGS, bot
 from userbot.modules import ALL_MODULES
@@ -26,10 +15,7 @@ for i in all_rows:
     BRAIN_CHECKER.append(i[0])
 db.close()
 bot.start()
-<<<<<<< HEAD
-=======
 
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
 for module_name in ALL_MODULES:
     imported_module = importlib.import_module("userbot.modules." + module_name)
 

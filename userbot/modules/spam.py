@@ -1,16 +1,9 @@
-<<<<<<< HEAD:userbot/modules/spam.py
-import asyncio
 
-from telethon import TelegramClient, events
-
-from userbot import LOGGER, LOGGER_GROUP, bot
-=======
 from asyncio import wait
 
 from telethon import events
 
 from userbot import bot
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61:userbot/modules/spammer.py
 
 
 @bot.on(events.NewMessage(outgoing=True, pattern="^.spam"))

@@ -27,16 +27,6 @@ except NameError:
     API_KEY = os.environ.get("API_KEY", None)
 
     API_HASH = os.environ.get("API_HASH", None)
-<<<<<<< HEAD
-    LOGGER_GROUP = int(os.environ.get("LOGGER_GROUP","0"))
-    LOGGER = os.environ.get(
-        "LOGGER", None
-    )  # Incase you want to turn off logging, put this to false
-    PM_AUTO_BAN = os.environ.get("PM_AUTO_BAN", None)
-    CONSOLE_LOGGER_VERBOSE = os.environ.get("CONSOLE_LOGGER_VERBOSE", None)
-    DB_URI = os.environ.get("DB_URI", None)
-    SCREENSHOT_LAYER_ACCESS_KEY = os.environ.get("SCREENSHOT_LAYER_ACCESS_KEY", None)
-=======
 
     LOGGER_GROUP = int(os.environ.get("LOGGER_GROUP", "0"))
 
@@ -52,7 +42,6 @@ except NameError:
 
     SCREENSHOT_LAYER_ACCESS_KEY = os.environ.get("SCREENSHOT_LAYER_ACCESS_KEY", None)
 
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
     OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
 
     SUDO = os.environ.get("SUDO", None)

@@ -1,20 +1,8 @@
 import asyncio
-<<<<<<< HEAD
-import inspect
-import subprocess
-
-import hastebin
-from telethon import TelegramClient, events
-from telethon.events import StopPropagation
-=======
 import subprocess
 from getpass import getuser
 
 from telethon import events
-
-from userbot import *
-from userbot import bot
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
 
 from userbot import *
 from userbot import bot

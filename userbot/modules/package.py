@@ -5,17 +5,6 @@ from userbot import SUDO
 
 
 def _start_instalation():
-<<<<<<< HEAD
-    package_managers = ["pacman", "apt-get", "yum", "brew", "yaourt", "dnf", "homebrew", "eopkg", "snap"]
-    if "linux" in str(platform.system()).lower():
-            for manager in package_managers:
-                try:
-                    subprocess.check_call(f"which {manager}", shell=True, stderr=subprocess.STDOUT)
-                    install_package(manager)
-                    return
-                except:
-                    continue
-=======
     package_managers = [
         "pacman",
         "apt-get",
@@ -26,7 +15,6 @@ def _start_instalation():
         "homebrew",
         "eopkg",
         "snap"]
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
 
     if "linux" in str(platform.system()).lower():
         for manager in package_managers:

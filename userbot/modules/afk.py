@@ -1,10 +1,6 @@
 import time
 
-<<<<<<< HEAD
-from telethon import TelegramClient, events
-=======
 from telethon import events
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
 from telethon.events import StopPropagation
 
 from userbot import (AFKREASON, COUNT_MSG, ISAFK, LOGGER, LOGGER_GROUP, USERS,
