@@ -428,20 +428,6 @@ async def typewriter(typew):
         elif textx:
             message = textx
             message = str(message.message)
-<<<<<<< HEAD
-        sleep_time = 0.001
-        typing_symbol = "|"
-        index = 1
-        old_text = ''
-        await e.edit(typing_symbol)
-        await asyncio.sleep(sleep_time)    
-        for character in message:
-            old_text = old_text + "" + character
-            typing_text = old_text + "" + typing_symbol
-            await e.edit(typing_text)
-            await asyncio.sleep(sleep_time)
-            await e.edit(old_text)
-=======
         sleep_time = 0.03
         typing_symbol = "|"
         old_text = ''
@@ -451,7 +437,6 @@ async def typewriter(typew):
             old_text = old_text + "" + character
             typing_text = old_text + "" + typing_symbol
             await typew.edit(typing_text)
->>>>>>> bb043a4e9d013d23ca853b453a9602df1b128f61
             await asyncio.sleep(sleep_time)
             await typew.edit(old_text)
             await asyncio.sleep(sleep_time)
