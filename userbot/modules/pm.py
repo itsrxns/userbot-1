@@ -1,9 +1,4 @@
 # Special module to block pms automatically
-<<<<<<< HEAD:userbot/modules/pm.py
-from telethon.tl.functions.contacts import BlockRequest
-from telethon.tl.functions.messages import ReportSpamRequest
-=======
->>>>>>> 1ce4916... [REFACTOR] : Linting the stuff (1):userbot/modules/pmpermit.py
 import sqlite3
 
 from telethon import TelegramClient, events
@@ -22,13 +17,8 @@ async def permitpm(e):
                 from userbot.modules.sql_helper.pm_permit_sql import is_approved
             except:
                 return
-<<<<<<< HEAD:userbot/modules/pm.py
-            E = is_approved(e.chat_id)
-            if not E and e.text != "`Bleep Blop! This is a Bot. Don't fret. \n\nMy Master 'ѕнanυ ғlaѕн #noυ' hasn't approved you to PM. \
-=======
             apprv = is_approved(e.chat_id)
-            if not apprv and e.text != "`Bleep Blop! This is a Bot. Don't fret. \n\nMy Master hasn't approved you to PM. \
->>>>>>> 1ce4916... [REFACTOR] : Linting the stuff (1):userbot/modules/pmpermit.py
+            if not apprv and e.text != "`Bleep Blop! This is a Bot. Don't fret. \n\nѕнanυ ғlaѕн #noυ hasn't approved you to PM. \
 Please wait for my Master to look in, he would mostly approve PMs.\n\n\
 As far as i know, he doesn't usually approve Retards.`" :
                 await e.reply(
