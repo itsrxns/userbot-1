@@ -1,9 +1,6 @@
 # Telegram-UserBot
 
- [![Build Status](https://travis-ci.com/baalajimaestro/Telegram-UserBot.svg?branch=modular)](https://travis-ci.com/baalajimaestro/Telegram-UserBot) [![codecov](https://codecov.io/gh/baalajimaestro/Telegram-UserBot/branch/modular/graph/badge.svg)](https://codecov.io/gh/baalajimaestro/Telegram-UserBot)
-
- #### To track Semaphore builds, see the commits section. Since I use Semaphore 2.0, it is not possible to track the progress fully, or put a badge here. Ignore Travis CI for PRs.
-
+[![Build Status](https://semaphoreci.com/api/v1/baalajimaestro/telegram-userbot/branches/master/badge.svg)](https://semaphoreci.com/baalajimaestro/telegram-userbot)
 
 ### If the CI builds pass, but you still get syntax errors when running locally it's most probably not a problem with the source but with your version of python
 
@@ -203,20 +200,12 @@ All that is needed is that your .py file be in the modules folder.
 
 To add commands, make sure to import the the primary bot via
 
-`from userbot import bot`.
-
-
-and
-
-
-telethon's important stuff via
-
-`from telethon import events`
+`from userbot.events import register`.
 
 You can then add commands wrapping them under
 
 ```
-@bot.on(events.NewMessage(outgoing=True,pattern=""))
+@register(outgoing=True, pattern="")
 async def some_function(e):
      Whatever here.
 ```
@@ -224,7 +213,7 @@ async def some_function(e):
 
 You can also set outgoing to incoming incase, you wanna make that command to parse the incoming message.
 
-The command pattern will be regex. Hope you know it, else feel free to hop on [here](https://regexone.com)
+The command pattern will be case-insensitive regex. Hope you know it, else feel free to hop on [here](https://regexone.com)
 
 Use asynchronous functions, and await the functions.
 

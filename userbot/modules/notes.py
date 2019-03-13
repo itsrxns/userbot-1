@@ -1,11 +1,24 @@
+<<<<<<< HEAD
 
 from telethon import events
+=======
+# Copyright (C) 2019 The Raphielscape Company LLC.
+#
+# Licensed under the Raphielscape Public License, Version 1.b (the "License");
+# you may not use this file except in compliance with the License.
+#
+>>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 
 from userbot import LOGGER, LOGGER_GROUP, bot
+from userbot.events import register
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern="^\.listnotes$"))
 @bot.on(events.MessageEdited(outgoing=True, pattern="^\.listnotes$"))
+=======
+@register(outgoing=True, pattern="^\.saved$")
+>>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 async def notes_active(svd):
     if not svd.text[0].isalpha() and svd.text[0] not in ("/", "#", "@", "!"):
         try:
@@ -23,7 +36,11 @@ async def notes_active(svd):
         await svd.edit(message)
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern="^\.rmnote (\w*)"))
+=======
+@register(outgoing=True, pattern="^\.clear (\w*)")
+>>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 async def remove_notes(clr):
     if not clr.text[0].isalpha() and clr.text[0] not in ("/", "#", "@", "!"):
         try:
@@ -36,7 +53,11 @@ async def remove_notes(clr):
         await clr.edit("```Note removed successfully```")
 
 
+<<<<<<< HEAD
 @bot.on(events.NewMessage(outgoing=True, pattern="^\.addnote (\w*)"))
+=======
+@register(outgoing=True, pattern="^\.save (\w*)")
+>>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 async def add_filter(fltr):
     if not fltr.text[0].isalpha():
         try:
@@ -52,10 +73,10 @@ async def add_filter(fltr):
         add_note(str(fltr.chat_id), notename, string)
         await fltr.edit(
             "`Note added successfully. Use` #{} `to get it`".format(notename)
-            )
+        )
 
 
-@bot.on(events.NewMessage(pattern="#\w*"))
+@register(pattern="#\w*")
 async def incom_note(getnt):
     try:
         if not (await getnt.get_sender()).bot:
@@ -73,8 +94,7 @@ async def incom_note(getnt):
         pass
 
 
-@bot.on(events.NewMessage(outgoing=True, pattern="^\.rmnotes$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^\.rmnotes$"))
+@register(outgoing=True, pattern="^\.rmnotes$")
 async def purge_notes(prg):
     try:
         from userbot.modules.sql_helper.notes_sql import rm_all_notes
@@ -85,6 +105,6 @@ async def purge_notes(prg):
         await prg.edit("```Purging all notes.```")
         rm_all_notes(str(prg.chat_id))
         if LOGGER:
-            await bot.send_message(
+            await prg.client.send_message(
                 LOGGER_GROUP, "I cleaned all notes at " + str(prg.chat_id)
             )
