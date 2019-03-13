@@ -29,8 +29,10 @@ async def permitpm(e):
             except:
                 return
             apprv = is_approved(e.chat_id)
+
             if not apprv and e.text != UNAPPROVED_MSG:
                 await e.reply(UNAPPROVED_MSG)
+
                 if NOTIF_OFF:
                     await e.client.send_read_acknowledge(e.chat_id)
                 if e.chat_id not in COUNT_PM:
@@ -158,29 +160,4 @@ async def unblockpm(unblock):
                 LOGGER_GROUP,
                 f"[{name0}](tg://user?id={unblock.chat_id})"
                 " was unblocc'd!.",
-            )
-
-
-@bot.on(events.NewMessage(outgoing=True, pattern="^.disapprove$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.disapprove$"))
-async def disapprovepm(e):
-    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        try:
-            from userbot.modules.sql_helper.pm_permit_sql import dissprove
-        except:
-            await e.edit("`Running on Non-SQL mode!`")
-            return
-        dissprove(e.chat_id)
-        await e.edit("`ѕнanυ ғlaѕн #noυ has disapproved you to PM!`")
-        if LOGGER:
-            aname = await bot.get_entity(e.chat_id)
-            name0 = str(aname.first_name)
-            await bot.send_message(
-                LOGGER_GROUP,
-                "["
-                + name0
-                + "](tg://user?id="
-                + str(e.chat_id)
-                + ")"
-                + " was Disapproved to PM you.",
-            )
+)
