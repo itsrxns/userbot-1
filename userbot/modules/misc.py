@@ -193,8 +193,7 @@ async def chatidgetter(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("Chat ID: `" + str(e.chat_id) + "`")
 
-@bot.on(events.NewMessage(outgoing=True, pattern="^.pingme$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.pingme$"))
+@register(outgoing=True, pattern="^.pingme$")
 async def pingme(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         start = datetime.now()
