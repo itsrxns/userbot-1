@@ -8,19 +8,6 @@ from time import sleep
 from telethon.errors import (BadRequestError, ImageProcessFailedError,
                              PhotoCropSizeSmallError)
 from telethon.errors.rpcerrorlist import UserIdInvalidError
-<<<<<<< HEAD
-from telethon.tl.functions.channels import EditAdminRequest, EditBannedRequest
-
-from telethon.tl.types import ChatAdminRights, ChatBannedRights
-
-from userbot import (BRAIN_CHECKER, LOGGER, LOGGER_GROUP, bot)
-
-from userbot import (BRAIN_CHECKER, LOGGER, LOGGER_GROUP, SPAM, SPAM_ALLOWANCE,
-                     bot)
-
-@bot.on(events.NewMessage(outgoing=True, pattern="^.upromote$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.upromote$"))
-=======
 from telethon.tl.functions.channels import (EditAdminRequest,
                                             EditBannedRequest,
                                             EditPhotoRequest)
@@ -77,7 +64,6 @@ async def set_group_photo(gpic):
 
 
 @register(outgoing=True, pattern="^.promote$")
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 async def promote(promt):
     """ For .promote command, do promote targeted person """
     if not promt.text[0].isalpha() \
@@ -104,11 +90,7 @@ async def promote(promt):
                                  (await promt.get_reply_message()).sender_id,
                                  new_rights)
             )
-<<<<<<< HEAD
-=======
             await promt.edit("`Promoted Successfully!`")
-
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
         # If Telethon spit BadRequestError, assume
         # we don't have Promote permission
         except BadRequestError:
@@ -167,12 +149,7 @@ async def demote(dmod):
         await dmod.edit("`Demoted Successfully!`")
 
 
-<<<<<<< HEAD
-@bot.on(events.NewMessage(outgoing=True, pattern="^.uban$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.uban$"))
-=======
 @register(outgoing=True, pattern="^.ban$")
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 async def thanos(bon):
     """ For .ban command, do "thanos" at targeted person """
     if not bon.text[0].isalpha() and bon.text[0] not in ("/", "#", "@", "!"):
@@ -282,13 +259,8 @@ async def nothanos(unbon):
         except UserIdInvalidError:
             await unbon.edit("`Uh oh my unban logic broke!`")
 
-
-<<<<<<< HEAD
-@bot.on(events.NewMessage(outgoing=True, pattern="^.umute$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.umute$"))
-=======
+            
 @register(outgoing=True, pattern="^.mute$")
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 async def spider(spdr):
     """
     This function basically muting peeps
@@ -337,14 +309,8 @@ async def spider(spdr):
                 + " was muted.",
             )
 
-<<<<<<< HEAD
-            
-@bot.on(events.NewMessage(outgoing=True, pattern="^.unmute$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.unmute$"))
-=======
 
 @register(outgoing=True, pattern="^.unmute$")
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 async def unmoot(unmot):
     if not unmot.text[0].isalpha() and unmot.text[0] \
             not in ("/", "#", "@", "!"):

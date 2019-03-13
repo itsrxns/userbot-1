@@ -37,12 +37,7 @@ async def filter_incoming_handler(e):
         pass
 
 
-<<<<<<< HEAD
-@bot.on(events.NewMessage(outgoing=True, pattern="^.addfilter\\s.*"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.addfilter\\s.*"))
-=======
 @register(outgoing=True, pattern="^.filter\\s.*")
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 async def add_filter(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         try:
@@ -59,12 +54,7 @@ async def add_filter(e):
         await e.edit("```Filter added successfully```")
 
 
-<<<<<<< HEAD
-@bot.on(events.NewMessage(outgoing=True, pattern="^.rmfilter\\s.*"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.rmfilter\\s.*"))
-=======
 @register(outgoing=True, pattern="^.stop\\s.*")
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 async def remove_filter(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         try:
@@ -97,13 +87,8 @@ async def kick_marie_filter(e):
                 str(e.chat_id)
             )
 
-
-<<<<<<< HEAD
-@bot.on(events.NewMessage(outgoing=True, pattern="^.listfilters$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.listfilters$"))
-=======
+            
 @register(outgoing=True, pattern="^.filters$")
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 async def filters_active(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         try:

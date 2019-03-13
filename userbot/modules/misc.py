@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-
-import io
-import random
-import re
-import time
-from asyncio import create_subprocess_shell as asyncsh
-from asyncio.subprocess import PIPE as asyncsh_PIPE
-=======
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
 # Licensed under the Raphielscape Public License, Version 1.b (the "License");
@@ -14,7 +5,6 @@ from asyncio.subprocess import PIPE as asyncsh_PIPE
 #
 
 from random import randint
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 from subprocess import PIPE
 from subprocess import run as runapp
 from time import sleep
@@ -213,13 +203,7 @@ async def pingme(e):
         ms = (end - start).microseconds / 1000
         await e.edit("Pong!\n%sms" % (ms))
 
-<<<<<<< HEAD
-        
-@bot.on(events.NewMessage(outgoing=True, pattern="^.sleep( [0-9]+)?$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^.sleep( [0-9]+)?$"))
-=======
 @register(outgoing=True, pattern="^.sleep( [0-9]+)?$")
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 async def sleepybot(e):
     message = e.text
     if not message[0].isalpha() and message[0] not in ("/", "#", "@", "!"):

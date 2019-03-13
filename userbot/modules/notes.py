@@ -1,24 +1,14 @@
-<<<<<<< HEAD
-
-from telethon import events
-=======
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
 # Licensed under the Raphielscape Public License, Version 1.b (the "License");
 # you may not use this file except in compliance with the License.
 #
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 
 from userbot import LOGGER, LOGGER_GROUP, bot
 from userbot.events import register
 
 
-<<<<<<< HEAD
-@bot.on(events.NewMessage(outgoing=True, pattern="^\.listnotes$"))
-@bot.on(events.MessageEdited(outgoing=True, pattern="^\.listnotes$"))
-=======
 @register(outgoing=True, pattern="^\.saved$")
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 async def notes_active(svd):
     if not svd.text[0].isalpha() and svd.text[0] not in ("/", "#", "@", "!"):
         try:
@@ -36,11 +26,7 @@ async def notes_active(svd):
         await svd.edit(message)
 
 
-<<<<<<< HEAD
-@bot.on(events.NewMessage(outgoing=True, pattern="^\.rmnote (\w*)"))
-=======
 @register(outgoing=True, pattern="^\.clear (\w*)")
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 async def remove_notes(clr):
     if not clr.text[0].isalpha() and clr.text[0] not in ("/", "#", "@", "!"):
         try:
@@ -53,11 +39,7 @@ async def remove_notes(clr):
         await clr.edit("```Note removed successfully```")
 
 
-<<<<<<< HEAD
-@bot.on(events.NewMessage(outgoing=True, pattern="^\.addnote (\w*)"))
-=======
 @register(outgoing=True, pattern="^\.save (\w*)")
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588
 async def add_filter(fltr):
     if not fltr.text[0].isalpha():
         try:

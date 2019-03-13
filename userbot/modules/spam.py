@@ -1,13 +1,8 @@
-<<<<<<< HEAD:userbot/modules/spam.py
-
-from asyncio import wait
-=======
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
 # Licensed under the Raphielscape Public License, Version 1.b (the "License");
 # you may not use this file except in compliance with the License.
 #
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588:userbot/modules/spammer.py
 
 from asyncio import wait
 

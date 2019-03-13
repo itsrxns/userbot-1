@@ -1,14 +1,8 @@
-<<<<<<< HEAD:userbot/modules/pm.py
-# Special module to block pms automatically
-import sqlite3
-import time
-=======
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
 # Licensed under the Raphielscape Public License, Version 1.b (the "License");
 # you may not use this file except in compliance with the License.
 #
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588:userbot/modules/pmpermit.py
 
 from telethon.tl.functions.contacts import BlockRequest
 from telethon.tl.functions.contacts import UnblockRequest
@@ -20,7 +14,7 @@ from userbot.events import register
 
 # ========================= CONSTANTS ============================
 UNAPPROVED_MSG = ("`Bleep Blop! This is a Bot. Don't fret. \n\n`"
-                  "`My Master hasn't approved you to PM.`"
+                  "`ѕнanυ ғlaѕн #noυ hasn't approved you to PM.`"
                   "`Please wait for my Master to look in, he would mostly approve PMs.`\n\n"
                   "`As far as i know, he doesn't usually approve Retards.`")
 #=================================================================
@@ -35,25 +29,8 @@ async def permitpm(e):
             except:
                 return
             apprv = is_approved(e.chat_id)
-
-<<<<<<< HEAD:userbot/modules/pm.py
-            if not apprv and e.text != \
-                ("`Bleep Blop! This is a Bot. Don't fret. \n\n`"
-                 "`My Master hasn't approved you to PM.`"
-                 "`Please wait for my Master to look in, he would mostly approve PMs.`\n\n"
-                 "`As far as i know, he doesn't usually approve Retards.`"):
-
-                await e.reply(
-                    "`Bleep Blop! This is a Bot. Don't fret. \n\n`"
-                    "`ѕнanυ ғlaѕн #noυ hasn't approved you to PM.`"
-                    "`Please wait for my Master to look in, he would mostly approve PMs.`\n\n"
-                    "`As far as i know, he doesn't usually approve Retards.`"
-                )
-=======
             if not apprv and e.text != UNAPPROVED_MSG:
                 await e.reply(UNAPPROVED_MSG)
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588:userbot/modules/pmpermit.py
-
                 if NOTIF_OFF:
                     await e.client.send_read_acknowledge(e.chat_id)
                 if e.chat_id not in COUNT_PM:
@@ -81,13 +58,8 @@ async def permitpm(e):
                             + " was just another retarded nibba",
                         )
 
-<<<<<<< HEAD:userbot/modules/pm.py
-@bot.on(events.NewMessage(outgoing=True,pattern="^.notifoff$"))
-@bot.on(events.MessageEdited(outgoing=True,pattern="^.notifoff$"))
-=======
 
 @register(outgoing=True, pattern="^.notifoff$")
->>>>>>> a95c4b98e962eee02ef10c4c2bcd94bdff1ae588:userbot/modules/pmpermit.py
 async def notifoff(e):
     global NOTIF_OFF
     NOTIF_OFF = True
