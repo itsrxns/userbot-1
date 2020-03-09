@@ -1,6 +1,6 @@
 from telethon import TelegramClient, events
-API_KEY="Type that here"
-API_HASH="Type that here"
+API_KEY="1229893"
+API_HASH="b63e37f0c1b87cf5ce8fe89b8308dfe7"
 #get it from my.telegram.org
 bot = TelegramClient('userbot',API_KEY,API_HASH)
 bot.start()
